@@ -1,0 +1,682 @@
+{
+	"info": {
+		"_postman_id": "f8d0cce7-568e-48a0-9fde-813414b9e95c",
+		"name": "Actualize_API_Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "576253",
+		"_collection_link": "https://cloudy-robot-931408.postman.co/workspace/New-Team-Workspace~5b1ad729-0886-4170-a3a9-b164d52edfc6/collection/576253-f8d0cce7-568e-48a0-9fde-813414b9e95c?action=share&source=collection_link&creator=576253"
+	},
+	"item": [
+		{
+			"name": "Registration Successful",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"john547@example.com\",\n\"password\":\"Password@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/register",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				},
+				"description": "### Register User - Successful Registration\n\nThis endpoint is used to register a new user.\n\n#### Request Body\n\n- `email` (string, required): The email address of the user.\n- `password` (string, required): The password for the user account.\n    \n\nExample:\n\n``` json\n{\n  \"email\": \"john547@example.com\",\n  \"password\": \"Password@1234\"\n}\n\n ```\n\n#### Response\n\n- Status: 201 Created\n- Content-Type: application/json\n    \n\nExample:\n\n``` json\n{\n  \"message\": \"User is registered successfully.\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration Declined",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"robertexample.com\",\n\"password\":\"password@12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/register",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				},
+				"description": "### Register User - Registration Declined\n\nThis endpoint try to register a new user when the the email format is incorrect.\n\n#### Request Body\n\n- `email` (string, required): The email of the user.\n- `password` (string, required): The password for the user account.\n    \n\n#### Response\n\n- Status: 400 Bad Request\n- Content-Type: application/json\n- Here email is not a valid email format."
+			},
+			"response": []
+		},
+		{
+			"name": "Registration Forbidden",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"admin@actualize.com\",\n\"password\":\"password13355k\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/register",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				},
+				"description": "### Register User - Forbidden\n\nThis endpoint is used to register a new user who is already a registered user.\n\n#### Request Body\n\n- email (string, required): The email address of the user.\n- password (string, required): The password for the user account.\n    \n\n#### Response\n\n- Status: 403\n- Content-Type: application/json\n- message (string): A message indicating the reason for the registration failure as the user \"[admin@actualize.com](https://mailto:admin@actualize.com)\" is already registered."
+			},
+			"response": []
+		},
+		{
+			"name": "Login Successful",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Stores the userId and access token in environment or global variables",
+							"var userId = responseBody.userid;",
+							"var accessToken = responseBody.access_token;",
+							"pm.environment.set(\"userId\", userId);",
+							"pm.globals.set(\"accessToken\", accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"john@example.com\",\n\"password\":\"Password@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/login",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				},
+				"description": "This endpoint allows users to log in via an HTTP POST request to {{base_url}}{{port}}/users/login. The request should include a raw JSON body with the user's email and password. Upon a successful execution, the response will have a status code of 200 and a content type of application/json. The response body will contain the user's ID and an access token for authentication.\n\n#### Request Body\n\n- email (string, required): The email address of the user.\n- password (string, required): The password for the user account.\n    \n\n#### Response\n\n- Status: 200\n- Content-Type: application/json\n- Body with user id and access token"
+			},
+			"response": []
+		},
+		{
+			"name": "Login with bad request- wrong email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response is in JSON format\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response has a message property\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property(\"message\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"johnexample.com\",\n\"password\":\"Password1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/login",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				},
+				"description": "# Login with bad request - wrong email\n\nThis endpoint is used to authenticate users by allowing them to log in. This is when user try to login providing wrong email format\n\n## Request\n\nThe request should be sent as an HTTP POST to `{{base_url}}{{port}}/users/login`. The request body should be in raw format and include the following parameters:\n\n- `email` (string, required): The email address of the user, wrong format\n- `password` (string, required): The password of the user.\n    \n\nAs part of API mock development \"[@](https://mailto:test@actualize.com)\" is missing in the email format.\n\nExample:\n\n``` json\n{\n\"email\":\"johnexample.com\",\n\"password\":\"Password@1234\"\n}\n\n ```\n\n## Response\n\nIn case of a failed login attempt, the API will return a 400 status with a JSON response containing a message indicating the reason for the failure.\n\nExample:\n\n``` json\n{\n    \"message\": \"login failed check the credentials\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Declined unregistered user",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"test@actualize.com\",\n\"password\":\"Password@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/login",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				},
+				"description": "# Users Login with unregistered user\n\nThis endpoint is used to authenticate users by allowing them to log in. This is for the unregistered user trying to login, hence login declined.\n\n## Request\n\nThe request should be sent as an HTTP POST to `{{base_url}}{{port}}/users/login`. The request body should be in raw format and include the following parameters:\n\n- `email` (string, required): The email address of the user.\n- `password` (string, required): The password of the user.\n    \n\nAs part of API mock development \"[test@actualize.com](https://mailto:test@actualize.com)\" user is considered as unregistered user.\n\nExample:\n\n``` json\n{\n\"email\":\"test@actualize.com\",\n\"password\":\"Password@1234\"\n}\n\n ```\n\n## Response\n\nIn case of a failed login attempt, the API will return a 404 status with a JSON response containing a message indicating the reason for the failure.\n\nExample:\n\n``` json\n{\n    \"message\": \"User not found. Please check the credentials.\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Search - Available book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/books?title=Catalyst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Catalyst"
+						}
+					]
+				},
+				"description": "This endpoint makes an HTTP GET request to retrieve a list of books based on the provided title parameter. The request should be sent to [http://localhost:3001/books](http://localhost:3001/books) with the title parameter in the query string.\n\n### Request\n\nThe request should be sent using the form-data request body type. No specific parameters are required in the form-data.\n\n#### Example\n\n- Method: GET\n- URL: [http://localhost:3001/books?title=Catalyst](http://localhost:3001/books?title=Catalyst)\n    \n\n### Response\n\nUpon a successful execution, the endpoint returns a JSON object with a status code of 200. The response contains an array of items, where each item represents a book with its corresponding details such as id, tag, title, authors, description, genres, price, currency, average rating, and ratings count.\n\n#### Example\n\n``` json\n{\n    \"totalItems\": 0,\n    \"items\": [\n        {\n            \"id\": \"\",\n            \"tag\": \"\",\n            \"title\": \"\",\n            \"authors\": \"\",\n            \"description\": \"\",\n            \"genres\": [\"\"],\n            \"price\": \"\",\n            \"currency\": \"\",\n            \"averageRating\": 0,\n            \"ratingsCount\": 0\n        }\n    ]\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Search - Unavailable book in bookstore",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/books?title=\"Working Backwards\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "\"Working Backwards\""
+						}
+					]
+				},
+				"description": "This endpoint makes an HTTP GET request to retrieve a list of books based on the provided title parameter. this example demonstrates the use case when the book is unavailable in the online bookstore. The request should be sent to [http://localhost:3001/books](http://localhost:3001/books) with the title parameter in the query string. use the specified book only\n\n### Request\n\nThe request should be sent using the form-data request body type. No specific parameters are required in the form-data.\n\n#### Example\n\n- Method: GET\n- URL: [http://localhost:3001/books?title=\"Catalyst1](http://localhost:3001/books?title=)\"\n    \n\n### Response\n\nUpon a successful execution, the endpoint returns a JSON object with a status code of 404. The response contains an array of items, where each item represents a book with its corresponding details such as id, tag, title, authors, description, genres, price, currency, average rating, and ratings count.\n\n#### Example\n\n``` json\n{\n\"message\": \"Book is not available in bookstore.\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Search for book user unauthorized",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/books?title=Catalyst",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Catalyst"
+						}
+					]
+				},
+				"description": "This endpoint makes an HTTP GET request to retrieve books with a specific title when access token is missing. The request should include a query parameter \"title\" with the value of the book title being searched for. The request is sent for unauthorized access token\n\n### Request Parameters\n\n- title: (string) The title of the book being searched for.\n    \n\n### Response\n\nThe endpoint returns a 401 status code with a JSON response. The response includes a \"message\" key with a corresponding value."
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart - Successful",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bookid\":\"54\",\n  \"quantity\": \"21\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/24/cart",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"24",
+						"cart"
+					]
+				},
+				"description": "This endpoint allows the user to add a book to their cart. The HTTP POST request should be made to [http://localhost:3001/users/24/cart](http://localhost:3001/users/24/cart) with the payload in raw request body type. The payload should include the \"bookid\" and \"quantity\" parameters. As part of mocking \"bookid\" 50 and quantity greater than 99 shouldnot be used.\n\n### Request Body\n\n- `bookid` (string): The ID of the book to be added to the cart.\n- `quantity` (string): The quantity of the book to be added to the cart.\n    \n\n### Response\n\nUpon successful execution, the endpoint returns a status code of 201 and a JSON object with the following fields:\n\n- `cartid` (string): The ID of the cart.\n- `bookid` (string): The ID of the book added to the cart.\n- `quantity` (string): The quantity of the book added to the cart.\n- `price` (string): The price of the book."
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart - Bad Request order quantity more than range",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bookid\":\"55\",\n  \"quantity\": \"110\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/24/cart",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"24",
+						"cart"
+					]
+				},
+				"description": "This API endpoint user tries to add a book to their cart. The HTTP POST request should be made to [http://localhost:3001/users/24/cart](http://localhost:3001/users/24/cart) with a payload in the raw request body type. The payload should include the \"bookid\" and \"quantity\" parameters and quantity should be greater than 99. As per mock design quantity more than 99 is considered as bad request.\n\n### Request Body\n\n- `bookid`: (string) The ID of the book to be added to the cart.\n- `quantity`: (string) The quantity of the book to be added to the cart greater than 99\n    \n\n### Response\n\nThe API returns a 400 status code with a JSON response in the content type. The response includes a \"message\" field which provides information about the error encountered during the request execution."
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart Unauthorized ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bookid\":\"55\",\n  \"quantity\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/24/cart",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"24",
+						"cart"
+					]
+				},
+				"description": "### Add User's Book to Cart\n\nThis endpoint tries to add a book to the cart with invalid access token.This API is designed considered when the access token is expired or to simulate use case for unauthorized user. Here in the header authorization bearer token is missing\n\n#### Request Body\n\n- `bookid` (text, required): The ID of the book to be added to the cart.\n- `quantity` (text, required): The quantity of the book to be added to the cart.\n    \n\n#### Response\n\n- Status: 401 Unauthorized\n- Content-Type: application/json\n- `message`: A message indicating the reason for the unauthorized status."
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart - Book not available (book ID 50 is reserved)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bookid\":\"50\",\n  \"quantity\": \"11\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/24/cart",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"24",
+						"cart"
+					]
+				},
+				"description": "This endpoint tries to add a book to the cart for a specific user and simulate when book is not available in the store. The request should be sent as an HTTP POST to the specified URL. The request body should include the 'bookid' and 'quantity' parameters to specify the book to be added and the quantity to be added to the cart. As part of mocking book id 50 is considered as out of stock from online store. Book id 50 and quantity in the range 1-99 to be selected to simulate this scenario.\n\n### Request Body\n\n- `bookid`: (string) The ID of the book to be added to the cart.\n- `quantity`: (string) The quantity of the book to be added to the cart.\n    \n\n### Response\n\nThe endpoint returns a 404 status code with a JSON response body including the 'bookid' and a 'message' field. The 'message' field provides information about the error or reason for the failure.\n\nExample:\n\n``` json\n{\n    \"bookid\": \"759\",\n    \"message\": \"Book is out of stock\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Successful",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cartid\":\"1344\",\n  \"paymentMethod\": \"credit_card\",\n  \"paymentToken\":\"0123456789abcdef\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{port}}/users/5/checkout",
+					"host": [
+						"{{base_url}}{{port}}"
+					],
+					"path": [
+						"users",
+						"5",
+						"checkout"
+					]
+				},
+				"description": "### POST /users/5/checkout\n\nThis endpoint is used to process the checkout for a specific user Id. As part of mocking it has been assumed while adding a payment instrument (not in scope of assignment) after add to cart, payment instrument needs to be tokenized and we are considering it as payment token for the checkout. So, payment token iis string of length 16 hexadecimal digits and assumed it is generated as combination of card details like card number, card holder name, cvv, card type to make the checkout call.\n\nTwo types of payment method supported credit_card and debit_card.\n\npayment token - strings with 16 length as hexadecimal length like 0123456789abcdef\",\"abcdefabcdefabcd\",\"1234567890abcdef\",\"FFFFFFFFFFFFFFFF\n\n#### Request Body\n\n- `cartid` (string) - The ID of the user's cart.\n- `paymentMethod` (string) - The payment method used for the transaction.\n- `paymentToken` (string) - The token associated with the selected payment method.\n    \n\n#### Response\n\nUpon a successful request, the server responds with a status code of 201 and a JSON object containing:\n\n- `orderid` (string) - The ID of the generated order.\n- `message` (string) - A message confirming the successful checkout process."
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Failure",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7f77e3db-811e-485c-83a7-3da172cf7932",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cartid\":\"1344\",\n  \"paymentMethod\": \"credit_card\",\n  \"paymentToken\":\"0123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users/5/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"5",
+						"checkout"
+					]
+				},
+				"description": "### Checkout User's Cart\n\nThis endpoint allows the user to initiate the checkout process for a specific user's cart with wrong payment token simulating payment failure as required.\n\nThis endpoint is used to process the checkout for a specific user Id. As part of mocking it has been assumed while adding a payment instrument (not in scope of assignment) after add to cart, payment instrument needs to be tokenized and we are considering it as payment token for the checkout. So, payment token iis string of length 16 hexadecimal digits and assumed it is generated as combination of card details like card number, card holder name, cvv, card type to make the checkout call. **Here we are providing wrong payment token.not in above format**\n\nTwo types of payment method supported credit_card and debit_card.\n\npayment token - strings with 16 length as hexadecimal length like 0123456789abcdef\",\"abcdefabcdefabcd\",\"1234567890abcdef\",\"FFFFFFFFFFFFFFFF\n\n**HTTP Request**  \n`POST http://localhost:3001/users/5/checkout`\n\n**Request Body**\n\n- `cartid` (string): The ID of the user's cart.\n- `paymentMethod` (string): The payment method chosen by the user.\n- `paymentToken` (string): The payment token for the selected payment method.\n    \n\n**Response**\n\n- Status: 402\n- { \"error\": \"payment_declined\", \"message\": \"Please provide the valid card information.\"}"
+			},
+			"response": []
+		}
+	]
+}

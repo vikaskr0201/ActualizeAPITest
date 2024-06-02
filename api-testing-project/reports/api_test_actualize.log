@@ -1,0 +1,92 @@
+2024-06-02 22:34:49 INFO  50565 test1_user_register.py    **** SUCCESSFUL NEW USER REGISTRATION ****
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'email': 'davidwright@example.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         Starting new HTTP connection (1): localhost:3001
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/register HTTP/1.1" 201 50
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'message': 'User is registered successfully.'}
+2024-06-02 22:34:49 INFO  50565 test1_user_register.py    **** REGISTRATION DECLINED WRONG CREDENTIALS ****
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'email': 'example.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/register HTTP/1.1" 400 35
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'message': 'User fail to register'}
+2024-06-02 22:34:49 INFO  50565 test1_user_register.py    **** ALREADY REGISTERED USER TRYING TO REGISTER AGAIN ****
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'email': 'admin@actualize.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/register HTTP/1.1" 403 114
+2024-06-02 22:34:49 DEBUG 50565 test1_user_register.py    {'message': 'User is already registered, re-registration with same email forbidden. Please use new email address.'}
+2024-06-02 22:34:49 INFO  50565 test2_user_login.py       **** SUCCESSFUL LOGIN ****
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'email': 'davidwright@example.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/login HTTP/1.1" 200 77
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'userid': '36', 'access_token': '*******' 
+2024-06-02 22:34:49 INFO  50565 test2_user_login.py       **** LOGIN FAILED WRONG EMAIL ****
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'email': 'example.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/login HTTP/1.1" 400 48
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'message': 'login failed check the credentials'}
+2024-06-02 22:34:49 INFO  50565 test2_user_login.py       **** UNREGISTERED USER TRYING TO LOGIN ****
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'email': 'test@actualize.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/login HTTP/1.1" 404 59
+2024-06-02 22:34:49 DEBUG 50565 test2_user_login.py       {'message': 'User not found. Please check the credentials.'}
+2024-06-02 22:34:49 INFO  50565 conftest.py               login_as_user
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               Login payload: {'email': 'apitester@example.com', 'password': '*******' 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/login HTTP/1.1" 200 77
+2024-06-02 22:34:49 INFO  50565 test3_search_book.py      **** SEARCHING BOOK AVAILABLE IN BOOKSTORE ****
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "GET /books?title=Catalyst HTTP/1.1" 200 509
+2024-06-02 22:34:49 DEBUG 50565 test3_search_book.py      {'totalItems': 1, 'items': [{'id': '38252', 'tag': 'd23e17fd-79d5-425a-9cda-12e9d44ffd1e', 'title': 'Catalyst', 'authors': 'Chandramouli', 'description': 'Book on ultimate strategies how to win at work and home', 'genres': ['Self help'], 'price': '528', 'currency': 'AED', 'averageRating': 4.9, 'ratingsCount': 600}]}
+2024-06-02 22:34:49 INFO  50565 test3_search_book.py      **** SEARCHING BOOK UNAVAILABLE IN BOOKSTORE ****
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "GET /books?title=Working+backwards HTTP/1.1" 404 49
+2024-06-02 22:34:49 DEBUG 50565 test3_search_book.py      {'message': 'Book is not available in bookstore.'}
+2024-06-02 22:34:49 INFO  50565 test3_search_book.py      **** SEARCHING BOOK WITH UNAUTHORIZED USER ****
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "GET /books?title=Catalyst HTTP/1.1" 401 56
+2024-06-02 22:34:49 DEBUG 50565 test3_search_book.py      {'message': 'User unauthorized.Please login again.'}
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               70
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               {'bookid': 82, 'quantity': 70}
+2024-06-02 22:34:49 INFO  50565 conftest.py               29
+2024-06-02 22:34:49 INFO  50565 test4_add_to_cart.py      **** SUCCESSFUL ADDING TO THE CART ****
+2024-06-02 22:34:49 INFO  50565 cart_wrap.py              /users/29/cart
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 cart_wrap.py              {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/cart HTTP/1.1" 201 74
+2024-06-02 22:34:49 DEBUG 50565 test4_add_to_cart.py      {'cartid': '4', 'bookid': '423', 'quantity': '55', 'price': '865'}
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               80
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               {'bookid': 50, 'quantity': 80}
+2024-06-02 22:34:49 INFO  50565 test4_add_to_cart.py      *** FAILED TO ADD TO THE CART ***
+2024-06-02 22:34:49 INFO  50565 cart_wrap.py              /users/29/cart
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 cart_wrap.py              {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/cart HTTP/1.1" 404 57
+2024-06-02 22:34:49 DEBUG 50565 test4_add_to_cart.py      {'bookid': '566', 'message': 'Book is out of stock.'}
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               {'bookid': 65, 'quantity': 101}
+2024-06-02 22:34:49 INFO  50565 test4_add_to_cart.py      **** BAD REQUEST ORDERED QUANTITY MORE THAN PERMISSIBLE VALUE ****
+2024-06-02 22:34:49 INFO  50565 cart_wrap.py              /users/29/cart
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 cart_wrap.py              {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/cart HTTP/1.1" 400 65
+2024-06-02 22:34:49 DEBUG 50565 test4_add_to_cart.py      {'message': 'Bad request. Please check the ordered quantity.'}
+2024-06-02 22:34:49 INFO  50565 test4_add_to_cart.py      **** UNAUTHORIZED ERROR - WHILE ADDING TO CART ****
+2024-06-02 22:34:49 INFO  50565 cart_wrap.py              /users/29/cart
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 cart_wrap.py              {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/cart HTTP/1.1" 401 69
+2024-06-02 22:34:49 DEBUG 50565 test4_add_to_cart.py      {'message': 'User is unauthorized. Please check the credentials.'}
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               c5adb4d06b419e75
+2024-06-02 22:34:49 DEBUG 50565 conftest.py               {'cartid': 16, 'paymentMethod': 'debit_card', 'paymentToken': 'c5adb4d06b419e75'}
+2024-06-02 22:34:49 INFO  50565 test5_checkout.py         *** Successful Checkout ***
+2024-06-02 22:34:49 INFO  50565 checkout_wrap.py          /users/29/checkout
+2024-06-02 22:34:49 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:49 DEBUG 50565 checkout_wrap.py          {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:49 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/checkout HTTP/1.1" 201 58
+2024-06-02 22:34:49 DEBUG 50565 test5_checkout.py         {'orderid': '371', 'message': 'Checkout Successful'}
+2024-06-02 22:34:50 DEBUG 50565 conftest.py               01991e38883f4fdfec
+2024-06-02 22:34:50 DEBUG 50565 conftest.py               {'cartid': 71, 'paymentMethod': 'debit_card', 'paymentToken': '01991e38883f4fdfec'}
+2024-06-02 22:34:50 INFO  50565 test5_checkout.py         *** Payment Declined ***
+2024-06-02 22:34:50 INFO  50565 checkout_wrap.py          /users/29/checkout
+2024-06-02 22:34:50 DEBUG 50565 utils_wrap.py             Request Headers: {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'} 
+2024-06-02 22:34:50 DEBUG 50565 checkout_wrap.py          {'Authorization': '*******',  'Accept': 'application/json', 'Content-Type': 'application/json'}
+2024-06-02 22:34:50 DEBUG 50565 connectionpool.py         http://localhost:3001 "POST /users/29/checkout HTTP/1.1" 402 90
+2024-06-02 22:34:50 DEBUG 50565 test5_checkout.py         {'error': 'payment_declined', 'message': 'Please provide the valid card information.'}

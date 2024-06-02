@@ -1,0 +1,1171 @@
+{
+  "uuid": "cbf1314d-2499-4f8f-9afa-779b073318c8",
+  "lastMigration": 32,
+  "name": "Mock API Requests",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "9cf87a55-972b-4ff4-bc1b-7b362d881052",
+      "type": "http",
+      "documentation": "Register a new user",
+      "method": "post",
+      "endpoint": "users/register",
+      "responses": [
+        {
+          "uuid": "672720ca-d9fb-4e87-92ef-7772db44bc8a",
+          "body": "{\n  \"message\":\"User is registered successfully.\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "New user successfully registered",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "admin@actualize.com",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": true,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "6f09474f-8361-4d9c-b4d3-b3ee938e1f3e",
+          "body": "{\"message\":\"User is already registered, re-registration with same email forbidden. Please use new email address.\"}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Forbidden Duplicate email address",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "admin@actualize.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "884a1bab-0a51-450c-84d4-6655ca029f36",
+          "body": "{\"message\":\"User fail to register\"}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid Request not a valid email or not matching password criteria",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+              "invert": true,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "admin@actualize.com",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "c3271600-9832-4aea-afe7-372d799b7e9b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "user",
+      "responses": [
+        {
+          "uuid": "f976a10b-7cc4-427c-9a07-f5e85e6971c8",
+          "body": "{\"suceess\":\"success\"}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8f05bad7-271b-4242-aa25-723ec420c035",
+          "body": "{\"status\":\"alshaya screwing vikas\"}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "152347e8-e39e-44a8-9e43-df0437e75dc0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d8ea9b3d-e724-44c4-b05c-8dde6fd09257",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f6853ea0-7b6a-47d5-9ffd-9b261634d0fd",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "610e655d-6207-4b01-b443-69843a7ea5b0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d7427e3f-f6ec-42ed-91cc-30388af00663",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "3c6bd8e6-0ec1-4467-a066-c8f636590515",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "18d7c959-be06-4c85-a463-69edaca0cf6c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "84e08fcf-34ee-4a90-b18b-70f1ba0c0b80",
+      "type": "http",
+      "documentation": "Login user",
+      "method": "post",
+      "endpoint": "users/login",
+      "responses": [
+        {
+          "uuid": "36be60b9-ebb8-4f97-94ee-cf972f9bef69",
+          "body": "{\n  \"userid\":\"{{int 1 99}}\",\n  \"access_token\": \"{{faker 'string.uuid'}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "User Successfully Login",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "test@actualize.com",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": true,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "a67015b3-1b09-46bf-b94b-90f5f072f703",
+          "body": "{\"message\":\"User not found. Please check the credentials.\"}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Centent-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "test@actualize.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "5ebff792-b45f-4efb-af03-52f3638aa64b",
+          "body": "{\"message\":\"login failed check the credentials\"}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid Request email is wrong",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.email",
+              "value": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+              "invert": true,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "^.{6,15}$",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Content-Type",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "8580e3f3-769c-4063-96b7-5e4164bd041f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "books",
+      "responses": [
+        {
+          "uuid": "3886f77e-373c-4316-96b6-6dc8da90ffd7",
+          "body": "{\n    \"totalItems\": 1,\n    \"items\": [\n        {\n            \"id\": \"{{int 20000  99999}}\",\n            \"tag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Catalyst'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Chandramouli'}}\",\n            \"description\": \"Book on ultimate strategies how to win at work and home\",\n            \"genres\": [\n                \"Self help\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\",\n            \"averageRating\": 4.9,\n            \"ratingsCount\": 600\n        }\n        \n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Query Param search with title Catalyst",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            },
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Catalyst",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f758bc8b-0d41-4063-866f-21c6282e86e0",
+          "body": "{\n    \"totalItems\": 1,\n    \"items\": [\n        \n        {\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Atomic Habits'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'James Clear'}}\",\n            \"description\": \"Easy and proven way to build good habits\",\n            \"genres\": [\n                \"Non-fictional\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.5,\n            \"ratingsCount\": 200\n        }\n        \n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Query Parameter search with title Atomic Habits",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Atomic Habits",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "60e8202d-3499-4100-bcc4-f0d041158210",
+          "body": "{\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Ikigai'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Scott'}}\",\n            \"description\": \"Japanese Art of Staying Young\",\n            \"genres\": [\n                \"Category\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.8,\n            \"ratingsCount\": 200\n        }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Query paramemeter for searching book with Ikigai",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Ikigai",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "35f3b6a0-1ce7-481f-aaaa-754d77779787",
+          "body": "{\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Linux'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Scott'}}\",\n            \"description\": \"Learn Linux Commands\",\n            \"genres\": [\n                \"Technical\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.1,s\n            \"ratingsCount\": 183\n        }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Query paramemeter for searching book with Linux",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Linux",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9cfd1628-0627-41b7-8972-055569bd33d7",
+          "body": "{\n  \"message\": \"User unauthorized.Please login again.\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Unauthorized due to authorization access token validation",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9260e6a5-c6ab-4b4c-a45e-7b4274fb0268",
+          "body": "{\"message\":\"Book is not available in bookstore.\"}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Book not available in online bookstore",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Catalyst",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Atomic Habits",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Ikigai",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "title",
+              "value": "Linux",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f4bea774-ae72-4e22-b9cc-cf44a8408230",
+      "type": "http",
+      "documentation": "Add to cart",
+      "method": "post",
+      "endpoint": "users/:userid/cart",
+      "responses": [
+        {
+          "uuid": "4b8b9491-d85b-4888-b92a-5c834a5ba0a4",
+          "body": "{ \n  \"cartid\":\"{{int 1 10}}\",\n  \"bookid\":\"{{int 1 999}}\",\n  \"quantity\":\"{{int 1 99}}\",\n  \"price\": \"{{int 10 999}}\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Successfully added to the cart",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.bookid",
+              "value": "^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.quantity",
+              "value": "^([1-9]|[1-9][0-9])$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "params",
+              "modifier": "$.userid",
+              "value": "^([1-9]|[1-9][0-9])$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            },
+            {
+              "target": "body",
+              "modifier": "$.bookid",
+              "value": "50",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": true,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "10c84ae6-4ba3-46e3-8654-146ff02f1b70",
+          "body": "{\n  \"message\":\"User is unauthorized. Please check the credentials.\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Unauthorized due to authorization access token validation",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e93d7469-c240-42ef-9aa4-8f0b1bf0c9be",
+          "body": "{\n  \"bookid\":\"{{int 1 999}}\",\n  \"message\":\"Book is out of stock.\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Book not found while adding to cart ",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.bookid",
+              "value": "50",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8236227c-a41f-4542-9e64-a421a01a948f",
+          "body": "{\n  \"message\":\"Bad request. Please check the ordered quantity.\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "bad request due wrong quantity value",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.quantity",
+              "value": "^(?:[1-9][0-9]{2,}|1000|[1-9][0-9]*)$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "7a094dd1-c874-4611-8191-99920ec87d31",
+      "type": "http",
+      "documentation": "Add to cart",
+      "method": "post",
+      "endpoint": "users/:userid/checkout",
+      "responses": [
+        {
+          "uuid": "37e239c5-c778-4f4d-8c96-08c83706e76f",
+          "body": "{ \n  \"orderid\":\"{{int 1 999}}\",\n  \"message\": \"Checkout Successful\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Successfully order placed",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.cartid",
+              "value": "^(10|[1-9])$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.paymentMethod",
+              "value": "credit_card",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "$.paymentToken",
+              "value": "^[0-9a-fA-F]{16}$",
+              "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": true,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e79cba67-86bc-4dac-b484-e1e4b332936a",
+          "body": "{\n  \"message\":\"unauthorized\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Unauthorized due to authorization access token validation",
+          "headers": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "6c795138-140c-4b52-bb0c-18e5e4b962a2",
+          "body": "{\n  \"error\":\"payment_declined\",\n  \"message\":\"Please provide the valid card information.\"\n}",
+          "latency": 0,
+          "statusCode": 402,
+          "label": "Paymeny details are wrong",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer c5c65cc7-a4ab-4d90-81f1-0ee615aed21d"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.paymentToken",
+              "value": "^[0-9a-fA-F]{16}$",
+              "invert": true,
+              "operator": "regex"
+            },
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": true,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "9cf87a55-972b-4ff4-bc1b-7b362d881052"
+    },
+    {
+      "type": "route",
+      "uuid": "c3271600-9832-4aea-afe7-372d799b7e9b"
+    },
+    {
+      "type": "route",
+      "uuid": "84e08fcf-34ee-4a90-b18b-70f1ba0c0b80"
+    },
+    {
+      "type": "route",
+      "uuid": "8580e3f3-769c-4063-96b7-5e4164bd041f"
+    },
+    {
+      "type": "route",
+      "uuid": "f4bea774-ae72-4e22-b9cc-cf44a8408230"
+    },
+    {
+      "type": "route",
+      "uuid": "7a094dd1-c874-4611-8191-99920ec87d31"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "47e8c221-beac-4836-bb99-5af78646e54f",
+      "id": "ljl5",
+      "name": "registerbody",
+      "documentation": "test",
+      "value": "{\n  \"user\":\"vikas\",\n  \"email\":\"vikas123@gmail.com\"\n}"
+    }
+  ],
+  "callbacks": []
+}

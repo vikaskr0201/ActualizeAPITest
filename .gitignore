@@ -1,0 +1,15 @@
+.DS_Store
+.git
+venv/
+.Python/
+env/
+api-testing-project/venv/
+.pytest_cache
+.settings
+.vscode
+api-testing-project/__pycache__/
+api-testing-project/tests/__pycache__/
+api-testing-project/tests/integration/__pycache__
+api-testing-projecttests/lib/__pycache__
+api-testing-project/tests/.pytest_cache
+.python-version
