@@ -9,7 +9,7 @@ Demonstrate proficiency in API design, mocking services, and automated testing t
  **API Design and Implementation**\
  **API Automation Testing**
  
-### API Endpoints to be implemented 
+### API Endpoints to be implemented: 
 
  ⁠*User Registration:* ⁠ POST /users/register
  ##
@@ -21,3 +21,10 @@ Demonstrate proficiency in API design, mocking services, and automated testing t
  ##
  ⁠*Checkout:* ⁠ POST /users/{userId}/checkout
  ##
+
+## Prerequistes:
+
+Python - Version 3.12.3 is used
+Docker
+Mockoon [click here](https://mockoon.com/download/#download-section)
+
