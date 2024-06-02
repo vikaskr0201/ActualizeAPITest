@@ -78,7 +78,8 @@ The API test framework project structure as below
 ###  :nut_and_bolt: Development Environment Readiness 
 
 Download the code using git command as below or Download as zip from repositories<br/>
-```git clone git@github.com:vikaskr0201/ActualizeAPITest.git
+```
+git clone git@github.com:vikaskr0201/ActualizeAPITest.git
 ```
 
 
