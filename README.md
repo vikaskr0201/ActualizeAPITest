@@ -36,10 +36,13 @@ Mockoon is used to mock the required services. All the required API routes are c
 Python testing framework pytest is used and pytest-html is used to generate the test reports.<br/>
 
 ### :electric_plug: Environment Set Up: 
-
+Install the Docker as link in the prerequisites<br/>
+Install Postman as per link in the prerequisites<br/>
+Install Python as per the link in the prerequisites, Mac users can using homebrew and ensure pip3 is installed<br/>
+Download the mockoon and install [click here]<br/>
 
 ###  :file_folder: Project Structure
-Add a file structure here with the basic details about files, below is an example.
+The API test framework project structure as below 
 
 ```
 .
@@ -72,6 +75,8 @@ Add a file structure here with the basic details about files, below is an exampl
     ├── requirements.txt --> to be installed in python vitual environment using pip3
     └── README.md --> Details of the project
 ```
+###  :nut_and_bolt: Development Environment Readiness 
+
 
 
 
