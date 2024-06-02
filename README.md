@@ -92,20 +92,48 @@ Mac Users can perform below steps under api-testing-project<br/>
 python3 -m venv venv
 source venv/bin/activate
 ```
-Once virtual environment is set or activated we need to install the required package listed in requirements.txt
-Run the below command 
+Once virtual environment is set or activated we need to install the required package listed in requirements.txt<br/>
+Run the below command<br/>
 ```
 pip3 install -r requirements.txt
 ```
+**Get backend mockserver up**<br/>
 
+Approach 1:<br/>
+Start the Mockoon<br/>
+Click on File -> Open Local Environment-> Select the mock_api.json and click open<br/>
+The file mock_api.json can be found under api-testing-project/mock-apis/config<br/>
+Click on start server(green button)<br/>
+Once started go to setting on the mockoon to confirm API URL and port.<br/>
+```
+Under Settings in API url should be 
+localhost and port as 3001
+```
+If port is not 3001 then we need to check and update the code config.py APP_URL= "http://localhost:3001" accordingly as the port backend mock mockoon is running.<br/>
 
+Approach 2:<br/>
+**Note** : If by anychance facing challenge to start then mockoon can be started using command line.<br/>
 
+If docker is installed use mockoon cli [click here](https://hub.docker.com/r/mockoon/cli)<br/>
+Run from commandline: <br/>
+```
+docker run -d --mount type=bind,source=/Users/vikaskumar/workspace/TestActualize/api-testing-project/mock-apis/config/mock_api.json,target=/data,readonly -p 3001:3001 mockoon/cli:latest -d data -p 3001
+```
+After start you will see a container id im command line 
+For instance like<br/>
+```
+9bd05d002b4b3b4cfc2ba0e3c56ce118b2e2ed1c542bd2e64b82e9790dee1177
+```
+**Note**: in above command source points to your mock_api.json path <br/>
 
+There are two ways to start the backend mock server either of the way can be applied. In case approach 2: mockoon cli is used then user should know basic docker commands<br/>
 
+```
+docker ps -a  
+docker logs <containerid> --> to see container logs while hitting the API
+docker kill <containerid> --> to stop server
 
-
-
-
+```
 
 
 
