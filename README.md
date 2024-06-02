@@ -81,6 +81,24 @@ Download the code using git command as below or Download as zip from repositorie
 ```
 git clone git@github.com:vikaskr0201/ActualizeAPITest.git
 ```
+From the downloaded path navigate to api-testing-project<br/>
+```
+cd ActualizeAPITest/api-testing-project
+```
+Set up the python virtual environment [click here](https://docs.python.org/3/library/venv.html)
+Mac Users can perform below steps under api-testing-project<br/>
+
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+Once virtual environment is set or activated we need to install the required package listed in requirements.txt
+Run the below command 
+```
+pip3 install -r requirements.txt
+```
+
+
 
 
 
