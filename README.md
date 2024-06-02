@@ -1,15 +1,15 @@
 
 :star: Star us on GitHub — it motivates us a lot to code!!
-## Author : _Vikas Kumar_
+### Author : _Vikas Kumar_
 
-# Project Description 
+## Project Description 
 Design and implement mock APIs for a hypothetical online bookstore, then develop a comprehensive automated testing suite for these APIs.
-# Project Objectives 
+## Project Objectives 
 Demonstrate proficiency in API design, mocking services, and automated testing through the development of a functional mock API environment and corresponding test automation scripts. This repo will depicts the details on the below:
- **API Design and Implementation**
- **API Automation Testing**
+ **API Design and Implementation**\
+ **API Automation Testing**\
 
-## API Endpoints to be implemented 
+### API Endpoints to be implemented 
 
  ⁠*User Registration:* ⁠ POST /users/register 
  ⁠*User Login:* ⁠ POST /users/login ⁠
