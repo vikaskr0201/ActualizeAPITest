@@ -24,7 +24,8 @@ Demonstrate proficiency in API design, mocking services, and automated testing t
 
 ## Prerequistes:
 
-Python - Version 3.12.3 is used
-Docker
-Mockoon [click here](https://mockoon.com/download/#download-section)
+Python - Version 3.12.3 is used [click here](https://www.python.org/downloads/)<br/>
+Docker [click here](https://docs.docker.com/get-docker/)<br/>
+Mockoon [click here](https://mockoon.com/download/#download-section) or Mockoon CLI[click here](https://hub.docker.com/r/mockoon/cli)<br/>
+
 
