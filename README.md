@@ -172,6 +172,9 @@ Masking password and access token feature is added in config.py.<br/>
 
 **Note** : Mocks are designed considering preconditions mentioned in postman API documentation.<br/> 
 
+## :cherry_blossom: Demo Video
+[!Watch here](https://drive.google.com/file/d/1ofhjzP1uYaHLAzeyvj8pnbiLABUiWK6Q/view?usp=sharing)
+
  ###  :fire: Improvements
  1. Automation Code can be dokerized and can be used together with Mockoon CLI (wip)
  2. Jenkins integration 
