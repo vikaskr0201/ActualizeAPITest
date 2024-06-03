@@ -1,7 +1,7 @@
 {
-  "uuid": "cbf1314d-2499-4f8f-9afa-779b073318c8",
+  "uuid": "6f220bde-f001-481e-9d6a-ad9a69329ed8",
   "lastMigration": 32,
-  "name": "Mock API Requests",
+  "name": "Mock API Requests (copy)",
   "endpointPrefix": "",
   "latency": 0,
   "port": 3001,
@@ -9,14 +9,14 @@
   "folders": [],
   "routes": [
     {
-      "uuid": "9cf87a55-972b-4ff4-bc1b-7b362d881052",
+      "uuid": "67dc2b86-243c-4c09-88f0-e927237dbee2",
       "type": "http",
       "documentation": "Register a new user",
       "method": "post",
       "endpoint": "users/register",
       "responses": [
         {
-          "uuid": "672720ca-d9fb-4e87-92ef-7772db44bc8a",
+          "uuid": "accd6dc3-e3fd-4d50-88ff-c40eb8355289",
           "body": "{\n  \"message\":\"User is registered successfully.\"\n}",
           "latency": 0,
           "statusCode": 201,
@@ -62,7 +62,7 @@
           "callbacks": []
         },
         {
-          "uuid": "6f09474f-8361-4d9c-b4d3-b3ee938e1f3e",
+          "uuid": "d021423a-7869-4b3d-9b33-e3e2c3140527",
           "body": "{\"message\":\"User is already registered, re-registration with same email forbidden. Please use new email address.\"}",
           "latency": 0,
           "statusCode": 403,
@@ -101,7 +101,7 @@
           "callbacks": []
         },
         {
-          "uuid": "884a1bab-0a51-450c-84d4-6655ca029f36",
+          "uuid": "f823e33f-b59b-4ec3-94fa-0565875c0726",
           "body": "{\"message\":\"User fail to register\"}",
           "latency": 0,
           "statusCode": 400,
@@ -150,208 +150,14 @@
       "responseMode": null
     },
     {
-      "uuid": "c3271600-9832-4aea-afe7-372d799b7e9b",
-      "type": "http",
-      "documentation": "",
-      "method": "get",
-      "endpoint": "user",
-      "responses": [
-        {
-          "uuid": "f976a10b-7cc4-427c-9a07-f5e85e6971c8",
-          "body": "{\"suceess\":\"success\"}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            }
-          ],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [
-            {
-              "target": "query",
-              "modifier": "",
-              "value": "",
-              "invert": false,
-              "operator": "equals"
-            }
-          ],
-          "rulesOperator": "AND",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": true,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "8f05bad7-271b-4242-aa25-723ec420c035",
-          "body": "{\"status\":\"alshaya screwing vikas\"}",
-          "latency": 0,
-          "statusCode": 400,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "AND",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "152347e8-e39e-44a8-9e43-df0437e75dc0",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "d8ea9b3d-e724-44c4-b05c-8dde6fd09257",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "f6853ea0-7b6a-47d5-9ffd-9b261634d0fd",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "610e655d-6207-4b01-b443-69843a7ea5b0",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "d7427e3f-f6ec-42ed-91cc-30388af00663",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "3c6bd8e6-0ec1-4467-a066-c8f636590515",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        },
-        {
-          "uuid": "18d7c959-be06-4c85-a463-69edaca0cf6c",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": false,
-          "crudKey": "id",
-          "callbacks": []
-        }
-      ],
-      "responseMode": null
-    },
-    {
-      "uuid": "84e08fcf-34ee-4a90-b18b-70f1ba0c0b80",
+      "uuid": "f4619ca5-56ca-4668-9195-66e93749ba79",
       "type": "http",
       "documentation": "Login user",
       "method": "post",
       "endpoint": "users/login",
       "responses": [
         {
-          "uuid": "36be60b9-ebb8-4f97-94ee-cf972f9bef69",
+          "uuid": "1a3f762d-7e01-41da-a9f3-75aaf7312123",
           "body": "{\n  \"userid\":\"{{int 1 99}}\",\n  \"access_token\": \"{{faker 'string.uuid'}}\"\n}",
           "latency": 0,
           "statusCode": 200,
@@ -397,7 +203,7 @@
           "callbacks": []
         },
         {
-          "uuid": "a67015b3-1b09-46bf-b94b-90f5f072f703",
+          "uuid": "1c74e003-365d-40bb-bd50-358ce35e3c7a",
           "body": "{\"message\":\"User not found. Please check the credentials.\"}",
           "latency": 0,
           "statusCode": 404,
@@ -436,7 +242,7 @@
           "callbacks": []
         },
         {
-          "uuid": "5ebff792-b45f-4efb-af03-52f3638aa64b",
+          "uuid": "c18d6121-1362-4cc3-b841-7cb10567d85e",
           "body": "{\"message\":\"login failed check the credentials\"}",
           "latency": 0,
           "statusCode": 400,
@@ -485,14 +291,14 @@
       "responseMode": null
     },
     {
-      "uuid": "8580e3f3-769c-4063-96b7-5e4164bd041f",
+      "uuid": "250a226b-707c-4105-856d-2a3e19afc01c",
       "type": "http",
       "documentation": "",
       "method": "get",
       "endpoint": "books",
       "responses": [
         {
-          "uuid": "3886f77e-373c-4316-96b6-6dc8da90ffd7",
+          "uuid": "b72cac92-d362-4a2b-9868-d64bd3271513",
           "body": "{\n    \"totalItems\": 1,\n    \"items\": [\n        {\n            \"id\": \"{{int 20000  99999}}\",\n            \"tag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Catalyst'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Chandramouli'}}\",\n            \"description\": \"Book on ultimate strategies how to win at work and home\",\n            \"genres\": [\n                \"Self help\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\",\n            \"averageRating\": 4.9,\n            \"ratingsCount\": 600\n        }\n        \n    ]\n}",
           "latency": 0,
           "statusCode": 200,
@@ -535,7 +341,7 @@
           "callbacks": []
         },
         {
-          "uuid": "f758bc8b-0d41-4063-866f-21c6282e86e0",
+          "uuid": "139551f7-a48a-4f35-bd23-1b9fecbcf3cc",
           "body": "{\n    \"totalItems\": 1,\n    \"items\": [\n        \n        {\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Atomic Habits'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'James Clear'}}\",\n            \"description\": \"Easy and proven way to build good habits\",\n            \"genres\": [\n                \"Non-fictional\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.5,\n            \"ratingsCount\": 200\n        }\n        \n    ]\n}",
           "latency": 0,
           "statusCode": 200,
@@ -578,7 +384,7 @@
           "callbacks": []
         },
         {
-          "uuid": "60e8202d-3499-4100-bcc4-f0d041158210",
+          "uuid": "733f16d5-56c2-4eb5-abfe-feb063d2483a",
           "body": "{\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Ikigai'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Scott'}}\",\n            \"description\": \"Japanese Art of Staying Young\",\n            \"genres\": [\n                \"Category\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.8,\n            \"ratingsCount\": 200\n        }",
           "latency": 0,
           "statusCode": 200,
@@ -621,7 +427,7 @@
           "callbacks": []
         },
         {
-          "uuid": "35f3b6a0-1ce7-481f-aaaa-754d77779787",
+          "uuid": "d38984f6-8ba7-44c6-83e1-180c24e192b4",
           "body": "{\n            \"id\": \"{{int 20000  99999}}\",\n            \"etag\": \"{{faker 'string.uuid'}}\",\n            \"title\": \"{{queryParam '$.items[0].title' 'Linux'}}\",\n            \"authors\": \"{{queryParam '$.items[0].authors' 'Scott'}}\",\n            \"description\": \"Learn Linux Commands\",\n            \"genres\": [\n                \"Technical\"\n            ],\n            \"price\": \"{{int 10 1000}}\",\n            \"currency\":\"AED\"\n            \"averageRating\": 4.1,s\n            \"ratingsCount\": 183\n        }",
           "latency": 0,
           "statusCode": 200,
@@ -664,7 +470,7 @@
           "callbacks": []
         },
         {
-          "uuid": "9cfd1628-0627-41b7-8972-055569bd33d7",
+          "uuid": "e910025b-bc3e-49ec-93e2-dbb3fb1f4a19",
           "body": "{\n  \"message\": \"User unauthorized.Please login again.\"\n}",
           "latency": 0,
           "statusCode": 401,
@@ -696,7 +502,7 @@
           "callbacks": []
         },
         {
-          "uuid": "9260e6a5-c6ab-4b4c-a45e-7b4274fb0268",
+          "uuid": "b635b702-762b-4755-a253-8a80db7bea2e",
           "body": "{\"message\":\"Book is not available in bookstore.\"}",
           "latency": 0,
           "statusCode": 404,
@@ -763,14 +569,14 @@
       "responseMode": null
     },
     {
-      "uuid": "f4bea774-ae72-4e22-b9cc-cf44a8408230",
+      "uuid": "50dd28a3-510f-4123-be30-781cbf0d1c32",
       "type": "http",
       "documentation": "Add to cart",
       "method": "post",
       "endpoint": "users/:userid/cart",
       "responses": [
         {
-          "uuid": "4b8b9491-d85b-4888-b92a-5c834a5ba0a4",
+          "uuid": "44f1c408-bc7e-4351-ac0d-6553e5d9fe8a",
           "body": "{ \n  \"cartid\":\"{{int 1 10}}\",\n  \"bookid\":\"{{int 1 999}}\",\n  \"quantity\":\"{{int 1 99}}\",\n  \"price\": \"{{int 10 999}}\"\n}",
           "latency": 0,
           "statusCode": 201,
@@ -838,7 +644,7 @@
           "callbacks": []
         },
         {
-          "uuid": "10c84ae6-4ba3-46e3-8654-146ff02f1b70",
+          "uuid": "86306e92-9090-4ed2-8d67-4df59741bdd5",
           "body": "{\n  \"message\":\"User is unauthorized. Please check the credentials.\"\n}",
           "latency": 0,
           "statusCode": 401,
@@ -870,7 +676,7 @@
           "callbacks": []
         },
         {
-          "uuid": "e93d7469-c240-42ef-9aa4-8f0b1bf0c9be",
+          "uuid": "1f08fdae-306d-4700-b9a7-6a504437bb8a",
           "body": "{\n  \"bookid\":\"{{int 1 999}}\",\n  \"message\":\"Book is out of stock.\"\n}",
           "latency": 0,
           "statusCode": 404,
@@ -913,7 +719,7 @@
           "callbacks": []
         },
         {
-          "uuid": "8236227c-a41f-4542-9e64-a421a01a948f",
+          "uuid": "b5bd6643-bb6a-4e17-8d65-36b5d9551e3e",
           "body": "{\n  \"message\":\"Bad request. Please check the ordered quantity.\"\n}",
           "latency": 0,
           "statusCode": 400,
@@ -959,14 +765,14 @@
       "responseMode": null
     },
     {
-      "uuid": "7a094dd1-c874-4611-8191-99920ec87d31",
+      "uuid": "ee6939cd-16c6-4a9f-bef1-0f484a3cca6a",
       "type": "http",
       "documentation": "Add to cart",
       "method": "post",
       "endpoint": "users/:userid/checkout",
       "responses": [
         {
-          "uuid": "37e239c5-c778-4f4d-8c96-08c83706e76f",
+          "uuid": "c24c54f2-4ec1-464b-9f6e-566f8eb1629a",
           "body": "{ \n  \"orderid\":\"{{int 1 999}}\",\n  \"message\": \"Checkout Successful\"\n}",
           "latency": 0,
           "statusCode": 201,
@@ -1023,7 +829,7 @@
           "callbacks": []
         },
         {
-          "uuid": "e79cba67-86bc-4dac-b484-e1e4b332936a",
+          "uuid": "0d1039bd-5065-4c18-8906-d0b7ba7532bf",
           "body": "{\n  \"message\":\"unauthorized\"\n}",
           "latency": 0,
           "statusCode": 401,
@@ -1055,7 +861,7 @@
           "callbacks": []
         },
         {
-          "uuid": "6c795138-140c-4b52-bb0c-18e5e4b962a2",
+          "uuid": "342e5c94-3032-484a-a0fc-25b44338fb53",
           "body": "{\n  \"error\":\"payment_declined\",\n  \"message\":\"Please provide the valid card information.\"\n}",
           "latency": 0,
           "statusCode": 402,
@@ -1104,27 +910,23 @@
   "rootChildren": [
     {
       "type": "route",
-      "uuid": "9cf87a55-972b-4ff4-bc1b-7b362d881052"
+      "uuid": "67dc2b86-243c-4c09-88f0-e927237dbee2"
     },
     {
       "type": "route",
-      "uuid": "c3271600-9832-4aea-afe7-372d799b7e9b"
+      "uuid": "f4619ca5-56ca-4668-9195-66e93749ba79"
     },
     {
       "type": "route",
-      "uuid": "84e08fcf-34ee-4a90-b18b-70f1ba0c0b80"
+      "uuid": "250a226b-707c-4105-856d-2a3e19afc01c"
     },
     {
       "type": "route",
-      "uuid": "8580e3f3-769c-4063-96b7-5e4164bd041f"
+      "uuid": "50dd28a3-510f-4123-be30-781cbf0d1c32"
     },
     {
       "type": "route",
-      "uuid": "f4bea774-ae72-4e22-b9cc-cf44a8408230"
-    },
-    {
-      "type": "route",
-      "uuid": "7a094dd1-c874-4611-8191-99920ec87d31"
+      "uuid": "ee6939cd-16c6-4a9f-bef1-0f484a3cca6a"
     }
   ],
   "proxyMode": false,
@@ -1160,7 +962,7 @@
   ],
   "data": [
     {
-      "uuid": "47e8c221-beac-4836-bb99-5af78646e54f",
+      "uuid": "c9ebdc78-2384-4405-bc1d-3337cf8bc5a1",
       "id": "ljl5",
       "name": "registerbody",
       "documentation": "test",
