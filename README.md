@@ -29,7 +29,7 @@ Docker [click here](https://docs.docker.com/get-docker/)<br/>
 Mockoon [click here](https://mockoon.com/download/#download-section) or Mockoon CLI [click here](https://hub.docker.com/r/mockoon/cli)<br/>
 Postman for API functional test and API Documentation [click here](https://www.postman.com/downloads/)<br/>
 
-###  :beginner: Approach: 
+###  :zap: Approach: 
 
 Mockoon is used to mock the required services. All the required API routes are created defining proper status, error handling and the rules.<br/>
 
