@@ -32,14 +32,14 @@ Postman for API functional test and API Documentation [click here](https://www.p
 ###  :zap: Approach: 
 
 Mockoon is used to mock the required services. All the required API routes are created defining proper status, error handling and the rules.<br/>
-
+POSTMAN for functional validation that mock API's are working and used to derive API documentation.
 Python testing framework pytest is used and pytest-html is used to generate the test reports.<br/>
 
 ### :electric_plug: Environment Set Up: 
-Install the Docker as link in the prerequisites<br/>
-Install Postman as per link in the prerequisites<br/>
-Install Python as per the link in the prerequisites, Mac users can using homebrew and ensure pip3 is installed<br/>
-Download the mockoon, mockoon cli<br/>
+Install the Docker refer Prerequisites <br/>
+Install Postman refer Prerequisites<br/>
+Install Python as per the link in the Prerequisites, Mac users can use homebrew and ensure pip3 is installed<br/>
+Download the Mockoon and Mockoon ClI<br/>
 Links are provided under Prerequisites<br/>
 
 ###  :file_folder: Project Structure
@@ -55,7 +55,7 @@ The API test framework project structure as below
     │   │   └── mock_api.json --> Mockoon environment file, open as local env using this json once Mockoon installed
     │   └── reports/
     │       ├── API_Report.html --> Test report generated using pytest html
-    │       └── api_test_actualize.log --> Test log generated for execution
+    │       └── api_test_actualize.log --> Test log generated for execution (sensitive information masked)
     ├── tests/
     │   ├── integrations/ -- Tests added under this directory
     │   │   ├── test1_user_register.py --> user registration test
@@ -127,7 +127,7 @@ For instance like<br/>
 ```
 **Note**: in above command source points to your mock_api.json path <br/>
 
-There are two ways to start the backend mock server either of the way can be applied. In case approach 2: mockoon cli is used then user should know basic docker commands<br/>
+There are two ways to start the backend mock server either of the way can be applied. In case approach 2: Mockoon CLI is used then user should know basic docker commands and can watch container logs when developed mock API's are exercised<br/>
 
 ```
 docker ps -a  
@@ -172,16 +172,16 @@ Masking password and access token feature is added in config.py.<br/>
 
 **Note** : Mocks are designed considering preconditions mentioned in postman API documentation.<br/> 
 
-## :cherry_blossom: Demo Video
+## :camera: Demo Video
 [!Watch here](https://drive.google.com/file/d/1ofhjzP1uYaHLAzeyvj8pnbiLABUiWK6Q/view?usp=sharing)
 
  ###  :fire: Improvements
- 1. Automation Code can be dokerized and can be used together with Mockoon CLI (wip)
+ 1. Automation Code can be dokerized and can be used together with Mockoon CLI (WIP)
  2. Jenkins integration 
  3. Enhancement in reporting like adding reportportal which which give us trends. 
 
-
-
+##  :lock: License
+Add a license here, or a link to it.
 
 
 
