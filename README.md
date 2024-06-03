@@ -170,7 +170,7 @@ Report and Logs will be generated under reports/ directory. Sample reports and l
 
 Masking password and access token feature is added in config.py.<br/>
 
-**Note** : Mocks are designed considering preconditions mentioned in postman API documentation. 
+**Note** : Mocks are designed considering preconditions mentioned in postman API documentation.<br/> 
 
 
 
