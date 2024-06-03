@@ -39,7 +39,8 @@ Python testing framework pytest is used and pytest-html is used to generate the 
 Install the Docker as link in the prerequisites<br/>
 Install Postman as per link in the prerequisites<br/>
 Install Python as per the link in the prerequisites, Mac users can using homebrew and ensure pip3 is installed<br/>
-Download the mockoon and install [click here]<br/>
+Download the mockoon, mockoon cli<br/>
+Links are provided under Prerequisites<br/>
 
 ###  :file_folder: Project Structure
 The API test framework project structure as below 
@@ -145,6 +146,31 @@ API_Tests.postman_collection.json
 ```
 3. Manually hit any API ensure backend Mockoon is running should return success. If required change the port in environment file currently its 3001<br/>
 4. Click on ... three dots and click "View Documentation" to visualize detail API documentation. 
+
+###  :rocket: Running Automated Test
+
+**Note** : Before running the test ensure your virtual environment venv is ready with python3 and pip3<br/>
+Install packages
+```
+pip3 install -r requirements.txt
+
+```
+
+Once all the requirements installed and module able to import, if face any change install or create __init__.py file in the folder<br/>
+
+Run the below command to run the required tests:<br/>
+```
+python3 -m pytest tests/integration/test1_user_register.py
+python3 -m pytest tests/integration/test2_user_login.py
+python3 -m pytest tests/integration/test3_search_book.py 
+python3 -m pytest tests/integration/test4_add_to_cart.py 
+python3 -m pytest tests/integration/test5_checkout.py 
+```
+Report and Logs will be generated under reports/ directory. Sample reports and logs attached.<br/>
+
+Masking password and access token feature is added in config.py.<br/>
+
+**Note** : Mocks are designed considering preconditions mentioned in postman API documentation. 
 
 
 
