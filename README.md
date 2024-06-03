@@ -97,29 +97,29 @@ Run the below command<br/>
 ```
 pip3 install -r requirements.txt
 ```
-**Get backend mockserver up**<br/>
+**Get Backend Mockserver Up (Mockoon)**<br/>
 
-Approach 1:<br/>
-Start the Mockoon<br/>
-Click on File -> Open Local Environment-> Select the mock_api.json and click open<br/>
-The file mock_api.json can be found under api-testing-project/mock-apis/config<br/>
-Click on start server(green button)<br/>
-Once started go to setting on the mockoon to confirm API URL and port.<br/>
+**Approach 1:**<br/>
+1. Start the Mockoon<br/>
+2. Click on File -> Open Local Environment-> Select the mock_api.json and click open<br/>
+3. The file mock_api.json can be found under api-testing-project/mock-apis/config<br/>
+4. Click on start server(green button)<br/>
+5. Once started go to setting on the mockoon to confirm API URL and port.<br/>
+6. Under Settings -> API url value should be :<br/>
 ```
-Under Settings in API url should be 
 localhost and port as 3001
 ```
 If port is not 3001 then we need to check and update the code config.py APP_URL= "http://localhost:3001" accordingly as the port backend mock mockoon is running.<br/>
 
-Approach 2:<br/>
+**Approach 2:**<br/>
 **Note** : If by anychance facing challenge to start then mockoon can be started using command line.<br/>
 
 If docker is installed use mockoon cli [click here](https://hub.docker.com/r/mockoon/cli)<br/>
-Run from commandline: <br/>
+1. Run from commandline: <br/>
 ```
 docker run -d --mount type=bind,source=/Users/vikaskumar/workspace/TestActualize/api-testing-project/mock-apis/config/mock_api.json,target=/data,readonly -p 3001:3001 mockoon/cli:latest -d data -p 3001
 ```
-After start you will see a container id im command line 
+2. After start you will see a container id im command line 
 For instance like<br/>
 ```
 9bd05d002b4b3b4cfc2ba0e3c56ce118b2e2ed1c542bd2e64b82e9790dee1177
@@ -134,6 +134,19 @@ docker logs <containerid> --> to see container logs while hitting the API
 docker kill <containerid> --> to stop server
 
 ```
+
+**Postman Set Up**<br/>
+1. Import the API collections and environment varialbles from from mock-apis/config directory in the POSTMAN<br/>
+2. Files to be imported<br/>
+```
+api_env.postman_environment.json
+API_Tests.postman_collection.json
+
+```
+3. Manually hit any API ensure backend Mockoon is running should return success. If required change the port in environment file currently its 3001<br/>
+4. Click on ... three dots and click "View Documentation" to visualize detail API documentation. 
+
+
 
 
 
