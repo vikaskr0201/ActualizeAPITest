@@ -176,7 +176,24 @@ Masking password and access token feature is added in config.py.<br/>
 [!Watch here](https://drive.google.com/file/d/1ofhjzP1uYaHLAzeyvj8pnbiLABUiWK6Q/view?usp=sharing)
 
  ###  :fire: Improvements
- 1. Automation Code can be dokerized and can be used together with Mockoon CLI (WIP)
+ 1. Automation Code can be dokerized and can be used together with Mockoon CLI - Completed<br/>
+ **Note** : Refer ```develop``` branch for dockerized code. The changes are mainly in<br/>
+    a. Adding Docker file and Make file (Building Image and build / test process)<br/>
+    b. Adding secrets.ini to update environment variable and updated code in config.py to read as env parameters.<br/>
+
+**Run Command** :<br/>
+```
+make dev
+```
+Once inside container run the same command <br/>
+```
+python3 -m pytest tests/integration/test1_user_register.py
+python3 -m pytest tests/integration/test2_user_login.py
+python3 -m pytest tests/integration/test3_search_book.py 
+python3 -m pytest tests/integration/test4_add_to_cart.py 
+python3 -m pytest tests/integration/test5_checkout.py 
+```
+**Advantages** : Docker will take care of installing all dependencies and getting the container ready for test <br/>
  2. Jenkins integration 
  3. Enhancement in reporting like adding reportportal which which give us trends. 
 
