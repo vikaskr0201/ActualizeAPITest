@@ -26,7 +26,7 @@ Demonstrate proficiency in API design, mocking services, and automated testing t
 
 Python - Version 3.12.3 is used [click here](https://www.python.org/downloads/)<br/>
 Docker [click here](https://docs.docker.com/get-docker/)<br/>
-Make for macOS[click here](https://discussions.apple.com/thread/1404907?sortBy=best)<br/>>
+Make for macOS  [click here](https://discussions.apple.com/thread/1404907?sortBy=best)<br/>
 Mockoon [click here](https://mockoon.com/download/#download-section) or Mockoon CLI [click here](https://hub.docker.com/r/mockoon/cli)<br/>
 Postman for API functional test and API Documentation [click here](https://www.postman.com/downloads/)<br/>
 
@@ -200,6 +200,14 @@ python3 -m pytest tests/integration/test5_checkout.py
 **Advantages** : Docker will take care of installing all dependencies and getting the container ready for test <br/>
  2. Jenkins integration <br/> 
  3. Enhancement in reporting like adding reportportal which which give us trends. <br/>
+
+ ### :cactus: Branches
+
+ Agile continuous integration methodology, so the version is frequently updated and development is really fast.<br/>
+
+1. **`develop`** is the development branch, currently dockerized code is in the develop branch
+
+2. **`main`** is the roduction ready code without dockerized.
 
 ##  :lock: License
 Add a license here, or a link to it.
