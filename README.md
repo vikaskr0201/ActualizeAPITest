@@ -176,9 +176,17 @@ Masking password and access token feature is added in config.py.<br/>
 [!Watch here](https://drive.google.com/file/d/1ofhjzP1uYaHLAzeyvj8pnbiLABUiWK6Q/view?usp=sharing)
 
  ###  :fire: Improvements
- 1. Automation Code can be dokerized and can be used together with Mockoon CLI (WIP)
- 2. Jenkins integration 
- 3. Enhancement in reporting like adding reportportal which which give us trends. 
+ 1. Automation Code can be dokerized and can be used together with Mockoon CLI. Refer `develop` branch<br/>
+ 2. Jenkins integration <br/>
+ 3. Enhancement in reporting like adding reportportal which which give us trends.<br/>
+
+  ### :cactus: Branches
+
+ Agile continuous integration methodology, so the version is frequently updated and development is really fast.<br/>
+
+1. **`develop`** is the development branch, currently dockerized code is in the develop branch
+
+2. **`main`** is the roduction ready code without dockerized.
 
 ##  :lock: License
 Add a license here, or a link to it.
