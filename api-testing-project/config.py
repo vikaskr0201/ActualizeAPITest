@@ -1,12 +1,13 @@
 import requests
 import logging
 import re
+import os
 
 SESSION = requests.Session()
 
-APP_URL= "http://localhost:3001"
-VALID_USER = "apitester@example.com"
-VALID_PASSWORD="Password@1234"
+APP_URL= os.getenv("APP_URL", "http://localhost:3001")
+VALID_USER = os.getenv("VALID_USER", "apitester@example.com")
+VALID_PASSWORD= os.getenv("VALID_PASSWORD", "Password@1234")
 
 LOG = logging.getLogger()
 

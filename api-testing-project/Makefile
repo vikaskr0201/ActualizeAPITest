@@ -35,7 +35,7 @@ rm:
 .PHONY: local
 local:
 	@echo "--> Starting $(NAME)"
-	docker run $(LOCAL_OPTS) --name $(NAME) -it $(IMAGE) /bin/bash
+	docker run $(LOCAL_OPTS) --name $(NAME) --env-file secrets.ini -it $(IMAGE) /bin/bash
 
 # Local development
 .PHONY: dev
