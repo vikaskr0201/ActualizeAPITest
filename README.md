@@ -26,6 +26,7 @@ Demonstrate proficiency in API design, mocking services, and automated testing t
 
 Python - Version 3.12.3 is used [click here](https://www.python.org/downloads/)<br/>
 Docker [click here](https://docs.docker.com/get-docker/)<br/>
+Make for macOS[click here](https://discussions.apple.com/thread/1404907?sortBy=best)<br/>>
 Mockoon [click here](https://mockoon.com/download/#download-section) or Mockoon CLI [click here](https://hub.docker.com/r/mockoon/cli)<br/>
 Postman for API functional test and API Documentation [click here](https://www.postman.com/downloads/)<br/>
 
@@ -55,7 +56,7 @@ The API test framework project structure as below
     │   │   └── mock_api.json --> Mockoon environment file, open as local env using this json once Mockoon installed
     │   └── reports/
     │       ├── API_Report.html --> Test report generated using pytest html
-    │       └── api_test_actualize.log --> Test log generated for execution (sensitive information masked)
+    │       └── api_test_actualize.log --> Test log generated for execution
     ├── tests/
     │   ├── integrations/ -- Tests added under this directory
     │   │   ├── test1_user_register.py --> user registration test
@@ -74,6 +75,9 @@ The API test framework project structure as below
     │   └── pytest.ini --> pytest initialization configs like logger, reports
     ├── config.py --> Details of App URL, method for masking sensitive data in logs like access token
     ├── requirements.txt --> to be installed in python vitual environment using pip3
+    ├── Dockefile --> To run test in docker container
+    ├── Makefile --> Make to clean, build and run the container
+    ├── secrets.ini --> The environment details ideally encrypted
     └── README.md --> Details of the project
 ```
 ###  :nut_and_bolt: Development Environment Readiness 
@@ -176,8 +180,8 @@ Masking password and access token feature is added in config.py.<br/>
 [!Watch here](https://drive.google.com/file/d/1ofhjzP1uYaHLAzeyvj8pnbiLABUiWK6Q/view?usp=sharing)
 
  ###  :fire: Improvements
- 1. Automation Code can be dokerized and can be used together with Mockoon CLI - Completed<br/>
- **Note** : Refer ```develop``` branch for dockerized code. The changes are mainly in<br/>
+ 1. Automation Code can be dokerized and can be used together with Mockoon CLI<br/>
+ **Note** : Refer ```develop``` branch for dockerized code. The changes are mainly in: <br/>
     a. Adding Docker file and Make file (Building Image and build / test process)<br/>
     b. Adding secrets.ini to update environment variable and updated code in config.py to read as env parameters.<br/>
 
@@ -194,8 +198,8 @@ python3 -m pytest tests/integration/test4_add_to_cart.py
 python3 -m pytest tests/integration/test5_checkout.py 
 ```
 **Advantages** : Docker will take care of installing all dependencies and getting the container ready for test <br/>
- 2. Jenkins integration 
- 3. Enhancement in reporting like adding reportportal which which give us trends. 
+ 2. Jenkins integration <br/> 
+ 3. Enhancement in reporting like adding reportportal which which give us trends. <br/>
 
 ##  :lock: License
 Add a license here, or a link to it.
